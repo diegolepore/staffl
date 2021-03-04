@@ -1,0 +1,7 @@
+h1 {
+  font-size: rem(29);
+  
+  @include tablet {
+    font-size: rem(32);
+  }
+}

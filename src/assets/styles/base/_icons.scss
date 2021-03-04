@@ -9,7 +9,8 @@ $icons: (
   'plus': '\e905',
   'checked': '\e906',
   'uncheck': '\e907',
-  'bar': '\e908'
+  'bar': '\e908',
+  'logo': '\e909',
 );
 
 @each $name, $glyph in $icons {
