@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'din';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/din/din.woff2') format('woff2'),
+    url('./assets/fonts/din/din.woff') format('woff');
+}
+
+$din-font: 'din', sans-serif;
+
+@font-face {
+  font-display: block;
+  font-family: 'stafflist-icons';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/fonts/icons/icons.woff2') format('woff2'),
+    url('./assets/fonts/icons/icons.woff') format('woff');
+}
+
+$stafflist-icons: 'stafflist-icons';

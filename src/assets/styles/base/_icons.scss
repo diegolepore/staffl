@@ -1,0 +1,21 @@
+// Font icons
+
+$icons: (
+  'attention': '\e900',
+  'close': '\e901',
+  'date': '\e902',
+  'email': '\e903',
+  'info': '\e904',
+  'plus': '\e905',
+  'checked': '\e906',
+  'uncheck': '\e907',
+  'bar': '\e908'
+);
+
+@each $name, $glyph in $icons {
+  .sl-icon--#{$name}::before {
+    font-family: $stafflist-icons;
+    content: $glyph;
+    display: block;
+  }
+}

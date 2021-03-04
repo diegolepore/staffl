@@ -1,0 +1,12 @@
+// Media queries Mixins
+
+@mixin tablet {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+// Functions
+@function rem($size, $context: $base-font-size) {
+  @return #{$size / $context}rem;
+}
