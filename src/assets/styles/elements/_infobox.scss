@@ -17,7 +17,7 @@
     top: rem(-168);
     transform: translateX(-50%);
 
-    @include tablet {
+    @include phone {
       left: 0;
       transform: none;
     }
@@ -45,7 +45,7 @@
     justify-content: center;
   }
 
-  @include tablet {
+  @include phone {
     padding: 0 rem(50);
 
     &__body {

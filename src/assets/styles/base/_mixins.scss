@@ -1,6 +1,12 @@
 // Media queries Mixins
 
 @mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin phone {
   @media (min-width: 601px) {
     @content;
   }

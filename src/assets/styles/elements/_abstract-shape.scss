@@ -18,7 +18,7 @@
     left: 50%;
     transform: translateX(-50%);
 
-    @include tablet {
+    @include phone {
       top: rem(100);
       left: rem(282);
       transform: none;
@@ -34,7 +34,7 @@
     top: rem(327);
     left: rem(-388);
 
-    @include tablet {
+    @include phone {
       height: rem(642);
       width: rem(578);
       top: rem(352);

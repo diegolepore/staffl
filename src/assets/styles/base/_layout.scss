@@ -9,6 +9,11 @@ html {
   margin: 0 auto;
   padding: 0 rem(20);
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 100vh;
+
+  @include tablet {
+    overflow: hidden;
+  }
 }
