@@ -13,11 +13,14 @@
   margin: 0;
   list-style-type: none;
   text-decoration: none;
+  background: transparent;
+  border: none;
+  font-family: $din-font;
+  outline: none;
 }
 
 html {
   color: $dark-blue;
-  font-family: $din-font;
   font-weight: normal;
 }
 
@@ -27,7 +30,7 @@ html {
   margin: 0 auto;
   padding: 0 rem(20);
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   height: 100vh;
 }
 
@@ -138,6 +141,21 @@ html {
   &:hover {
     background: $dark-blue;
     color: $white;
+  }
+
+  
+  &--flat {
+    padding: rem(8) rem(13);
+  }
+
+  &--light {
+    color: $gray-2;
+    border-color: $gray-2;
+
+    &:hover {
+      background: $gray-2;
+      color: $white;
+    }
   }
 }
 

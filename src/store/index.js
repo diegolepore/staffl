@@ -1,12 +1,13 @@
 import { createStore } from 'vuex'
+import app from './modules/app'
 
-export default createStore({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store = createStore({
   modules: {
+    app
   }
 })
+
+export default store
+
+// store.state.a // -> `moduleA`'s state
+// store.state.b // -> `moduleB`'s state

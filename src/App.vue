@@ -13,7 +13,7 @@
         stakeholders in the staffing proccess
       </p>
       <div class="sl-info-box__actions">
-        <button class="sl-button">
+        <button @click="openModal" type="button" class="sl-button">
           <span class="sl-button__icon sl-icon--bar"></span>
           Just Click me
         </button>
@@ -26,16 +26,32 @@
     </div>
   </div>
 
-  <!-- <ModalWrapper/> -->
+  <ModalWrapper/>
 </template>
 
 <script>
-// import ModalWrapper from './components/ModalWrapper.vue'
+import { mapActions } from 'vuex'
+import ModalWrapper from './components/ModalWrapper.vue'
 
 export default {
   name: 'App',
   components: {
-    // ModalWrapper
+    ModalWrapper
+  },
+  methods: {
+    ...mapActions('app', ['changeModalStatus']),
+
+    openModal () {
+      this.changeModalStatus({
+        open: true,
+        options: {
+          componentName: 'FormAddVacancy'
+        }
+      })
+    }
+  },
+  mounted () {
+    this.openModal()
   }
 }
 </script>
