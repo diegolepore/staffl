@@ -183,6 +183,14 @@ export default {
         console.log(res.data)
         this.isLoading = false
         alert('Form sent successfully!!')
+
+        // Close modal after submit is successfull
+        this.changeModalStatus({
+          open: false,
+          options: {
+            componentName: ''
+          }
+        })
       } catch (error) {
         console.error(error)
         this.isLoading = false
