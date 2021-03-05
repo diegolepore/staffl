@@ -167,21 +167,26 @@ export default {
       this.$refs.fileInput.value = ''
     },
 
-    submitData () {
+    async submitData () {
       this.isLoading = true
-
-      setTimeout(() => {
-        // In a real scenario, I'll be sending a POST request here with the data from formData
-        console.log(this.formData)
-        alert('Test message: you will see the data in the console')
-        this.isLoading = false
-        this.changeModalStatus({
-          open: false,
-          options: {
-            componentName: ''
+      try {
+        const res = await this.axios.post(
+          'https://jsonplaceholder.typicode.com/posts',
+          this.formData,
+          {
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8'
+            }
           }
-        })
-      }, 2000)
+        )
+        // Log res data to the console
+        console.log(res.data)
+        this.isLoading = false
+        alert('Form sent successfully!!')
+      } catch (error) {
+        console.error(error)
+        this.isLoading = false
+      }
     }
   }
 }
