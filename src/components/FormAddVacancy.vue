@@ -92,13 +92,16 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import { required, email } from '@vuelidate/validators'
+import { mapActions } from 'vuex'
 import dayjs from 'dayjs'
 
 export default {
   name: 'FormAddVacancy',
+
   setup () {
     return { $v: useVuelidate() }
   },
+
   data () {
     return {
       formData: {
@@ -114,6 +117,7 @@ export default {
       isLoading: false
     }
   },
+
   validations () {
     return {
       formData: {
@@ -122,12 +126,16 @@ export default {
       }
     }
   },
+
   computed: {
     additionalInfoSigns () {
       return this.isMoreInfoOpen ? '-' : '+'
     }
   },
+
   methods: {
+    ...mapActions('app', ['changeModalStatus']),
+
     toggleAdditionalInfo () {
       this.isMoreInfoOpen = !this.isMoreInfoOpen
     },
@@ -151,8 +159,6 @@ export default {
     onFileSelected (event) {
       this.formData.file = event.target.files[0]
       this.fileName = event.target.files[0].name
-      console.log(this.formData.file)
-      console.log(this.fileName)
     },
 
     removeSelectedFile () {
@@ -163,9 +169,18 @@ export default {
 
     submitData () {
       this.isLoading = true
+
       setTimeout(() => {
-        this.isLoading = false
+        // In a real scenario, I'll be sending a POST request here with the data from formData
         console.log(this.formData)
+        alert('Test message: you will see the data in the console')
+        this.isLoading = false
+        this.changeModalStatus({
+          open: false,
+          options: {
+            componentName: ''
+          }
+        })
       }, 2000)
     }
   }

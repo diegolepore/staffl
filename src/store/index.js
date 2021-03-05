@@ -8,6 +8,3 @@ const store = createStore({
 })
 
 export default store
-
-// store.state.a // -> `moduleA`'s state
-// store.state.b // -> `moduleB`'s state

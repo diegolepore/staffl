@@ -1,0 +1,40 @@
+.sl-button {
+  color: $dark-blue;
+  cursor: pointer;
+  border: 2px solid $dark-blue;
+  padding: rem(17) rem(13);
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  background: $white;
+  transition: all 0.3s;
+  font-family: $din-font;
+  font-weight: bold;
+  font-size: rem(16);
+  
+  &__icon {
+    font-size: rem(12);
+    margin-right: rem(10);
+    font-weight: normal;
+  }
+  
+  &:hover {
+    background: $dark-blue;
+    color: $white;
+  }
+
+  
+  &--flat {
+    padding: rem(8) rem(13);
+  }
+
+  &--light {
+    color: $gray-2;
+    border-color: $gray-2;
+
+    &:hover {
+      background: $gray-2;
+      color: $white;
+    }
+  }
+}

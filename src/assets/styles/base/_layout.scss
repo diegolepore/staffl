@@ -1,0 +1,14 @@
+html {
+  color: $dark-blue;
+  font-weight: normal;
+}
+
+.sl-container {
+  width: 100%;
+  max-width: rem(900);
+  margin: 0 auto;
+  padding: 0 rem(20);
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}

@@ -3,7 +3,7 @@
     <div class="sl-modal__content">
       <div class="sl-modal__content-header">
         <p class="sl-modal__content-header-title">Add Vacancy</p>
-        <button @click="closeModal" class="sl-modal__content-header-close">
+        <button class="sl-modal__content-header-close"  @click="closeModal">
           <span class="sl-icon--close"></span>
         </button>
       </div>
@@ -11,7 +11,7 @@
         <component :is="settings.componentName"></component>
       </div>
     </div>
-    <div class="sl-modal__bg"></div>
+    <div class="sl-modal__bg" @click="closeModal"></div>
   </div>
 </template>
 
@@ -21,9 +21,11 @@ import FormAddVacancy from './FormAddVacancy'
 
 export default {
   name: 'ModalWrapper',
+
   components: {
     FormAddVacancy
   },
+
   computed: {
     ...mapGetters('app', ['getAppItem']),
 
@@ -35,8 +37,10 @@ export default {
       return this.getAppItem('modalSettings')
     }
   },
+
   methods: {
     ...mapActions('app', ['changeModalStatus']),
+
     closeModal () {
       this.changeModalStatus({
         open: false,

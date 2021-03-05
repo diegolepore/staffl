@@ -1,11 +1,13 @@
 export default {
   namespaced: true,
+
   state: () => ({
     modalOpen: false,
     modalSettings: {
       componentName: ''
     }
   }),
+
   mutations: {
     setModalsettings (state, payload) {
       state.modalSettings = payload
@@ -15,6 +17,7 @@ export default {
       state.modalOpen = payload
     }
   },
+
   actions: {
     changeModalStatus ({ commit }, payload) {
       const { open, options } = payload
@@ -25,6 +28,7 @@ export default {
       }
     }
   },
+
   getters: {
     getAppItem (state) {
       return (key) => state[key]

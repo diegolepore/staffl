@@ -1,0 +1,23 @@
+.sl-nav {
+  padding-top: rem(123);
+  margin-bottom: rem(125);
+  position: relative;
+  z-index: 2;
+  
+  @include tablet {
+    margin-bottom: rem(50);
+    padding-top: rem(188);
+  }
+}
+
+.sl-logo {
+  display: block;
+  text-align: center;
+  font-size: rem(70);
+  color: $white;
+  
+  @include tablet {
+    color: $dark-blue;
+    text-align: left;
+  }  
+}
