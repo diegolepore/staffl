@@ -309,6 +309,10 @@ export default {
 
     &--checkbox {
       height: rem(55);
+
+      #{$parent}__field-title {
+        padding-left: rem(22);
+      }
     }
 
     &--textarea {
