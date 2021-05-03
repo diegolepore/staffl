@@ -1,12 +1,13 @@
 export default {
   namespaced: true,
 
-  state: () => ({
+  state: {
     modalOpen: false,
     modalSettings: {
-      componentName: ''
+      componentName: '',
+      props: {}
     }
-  }),
+  },
 
   mutations: {
     setModalsettings (state, payload) {

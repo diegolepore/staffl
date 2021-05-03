@@ -1,4 +1,16 @@
 <template>
+
+  <!-- <div>
+    <h1>{{ count }}</h1>
+    <button @click="incrementBy(changeAmount)">Add</button>
+    <br>
+    <br>
+    <button @click="decrementBy(changeAmount)">Remove</button>
+    <br>
+    <br>
+    <input type="number" v-model.number="changeAmount">
+  </div> -->
+
   <div class="sl-container">
     <nav class="sl-nav">
       <div class="sl-logo">
@@ -33,10 +45,26 @@
 import { mapActions } from 'vuex'
 import ModalWrapper from './components/ModalWrapper.vue'
 
+import { ref } from 'vue'
+
+import { countMethod } from './features/addCount'
+
 export default {
   name: 'App',
   components: {
     ModalWrapper
+  },
+  setup () {
+    const { incrementBy, decrementBy, count } = countMethod()
+
+    const changeAmount = ref(2)
+
+    return {
+      count,
+      incrementBy,
+      decrementBy,
+      changeAmount
+    }
   },
   methods: {
     ...mapActions('app', ['changeModalStatus']),
@@ -45,7 +73,10 @@ export default {
       this.changeModalStatus({
         open: true,
         options: {
-          componentName: 'FormAddVacancy'
+          componentName: 'FormAddVacancy',
+          props: {
+            test: 'Some test here!!'
+          }
         }
       })
     }
