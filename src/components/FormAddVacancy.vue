@@ -5,12 +5,12 @@
       <div
         class="sl-form__field"
         :class="{
-          'sl-form__field--has-error': $v.formData.project.$invalid && $v.formData.project.$anyDirty
+          'sl-form__field--has-error': v.formData.project.$invalid && v.formData.project.$anyDirty
         }"
       >
         <div class="sl-form__field-icon sl-icon--bar"></div>
         <div class="sl-form__field-inner">
-          <input type="text" v-model="$v.formData.$model.project" class="sl-form__field-input" id="project" required>
+          <input type="text" v-model="v.formData.$model.project" class="sl-form__field-input" id="project" required>
           <label class="sl-form__field-label" for="project">Project</label>
         </div>
       </div>
@@ -28,12 +28,12 @@
       <div
         class="sl-form__field"
         :class="{
-          'sl-form__field--has-error':  $v.formData.email.$invalid && $v.formData.email.$anyDirty
+          'sl-form__field--has-error':  v.formData.email.$invalid && v.formData.email.$anyDirty
         }"
       >
         <div class="sl-form__field-icon sl-icon--email"></div>
         <div class="sl-form__field-inner">
-          <input type="text" v-model="$v.formData.$model.email" class="sl-form__field-input" id="email" required>
+          <input type="text" v-model="v.formData.$model.email" class="sl-form__field-input" id="email" required>
           <label class="sl-form__field-label" for="email">Email</label>
         </div>
       </div>
@@ -82,10 +82,11 @@
       </template>
 
       <!-- Submit button -->
-      <button class="sl-form__submit-btn" type="submit" :disabled="$v.$invalid || isLoading">
+      <button class="sl-form__submit-btn" type="submit" :disabled="v.$invalid || isLoading">
         {{ isLoading ? 'Sending...' : 'Save' }}
       </button>
     </form>
+    {{ test }}
   </div>
 </template>
 
@@ -99,8 +100,10 @@ export default {
   name: 'FormAddVacancy',
 
   setup () {
-    return { $v: useVuelidate() }
+    return { v: useVuelidate() }
   },
+
+  props: ['test'],
 
   data () {
     return {

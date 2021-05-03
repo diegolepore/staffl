@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="sl-modal__content-body">
-        <component :is="settings.componentName"></component>
+        <component :is="settings.componentName" v-bind="settings.props" />
       </div>
     </div>
     <div class="sl-modal__bg" @click="closeModal"></div>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+// import { mapGetters, mapActions } from 'vuex'
 import FormAddVacancy from './FormAddVacancy'
 
 export default {
@@ -27,27 +27,35 @@ export default {
   },
 
   computed: {
-    ...mapGetters('app', ['getAppItem']),
+    // ...mapGetters('app', ['getAppItem']),
 
     isOpen () {
-      return this.getAppItem('modalOpen')
+      return this.$store.state.app.modalOpen
+      // return this.getAppItem('modalOpen')
     },
 
     settings () {
-      return this.getAppItem('modalSettings')
+      return this.$store.state.app.modalSettings
+      // return this.getAppItem('modalSettings')
     }
   },
 
   methods: {
-    ...mapActions('app', ['changeModalStatus']),
+    // ...mapActions('app', ['changeModalStatus']),
 
     closeModal () {
-      this.changeModalStatus({
+      this.$store.dispatch('app/changeModalStatus', {
         open: false,
         options: {
           componentName: ''
         }
       })
+      // this.changeModalStatus({
+      //   open: false,
+      //   options: {
+      //     componentName: ''
+      //   }
+      // })
     }
   }
 }
